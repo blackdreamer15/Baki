@@ -14,7 +14,7 @@ function Navbar() {
 					<p className="text-sm hover:text-black ease-in duration-200">
 						Projects
 					</p>
-				</a>
+				</a>  
 				<a href="/contact">
 					<p className="text-sm hover:text-black ease-in duration-200">
 						Contact
