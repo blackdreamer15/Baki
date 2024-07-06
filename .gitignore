@@ -37,4 +37,5 @@ Thumbs.db
 
 # Dependency lock files
 package-lock.json
+pnpm-lock.yaml
 yarn.lock
