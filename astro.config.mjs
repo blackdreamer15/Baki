@@ -17,10 +17,6 @@ const astroExpressiveCodeOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  experimental: {
-    viewTransitions: true,
-    assets: true,
-  },
   integrations: [
     tailwind({
       config: {
