@@ -17,6 +17,10 @@ const astroExpressiveCodeOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  experimental: {
+    viewTransitions: true,
+    assets: true
+  },
   integrations: [
     tailwind({
       config: {
@@ -40,5 +44,8 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
+  },
+  server: {
+    port: 3000,
   },
 });
