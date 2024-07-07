@@ -1,5 +1,5 @@
 import type { Talk } from "types";
-import { FormattedDatetime } from "./Datetime";
+import { FormattedDatetime } from "../molecules/Datetime";
 
 type Props = {
   talks: Talk[];
