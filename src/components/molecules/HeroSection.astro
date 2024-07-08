@@ -1,6 +1,5 @@
 ---
 import { IoMailOutline } from "react-icons/io5";
-import IoAttachOutline from "react-icons/io5";
 import { SOCIALS } from "@config";
 import Socials from "@components/molecules/Socials.astro";
 
@@ -42,7 +41,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<IoMailOutline size="0.8rem" />
+						<IoMailOutline size="0.85rem">
 							Contact Me
 						</a>
 
@@ -52,7 +51,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<IoAttachOutline size="0.8rem" />
 							Resume
 						</a>
 				</div>
