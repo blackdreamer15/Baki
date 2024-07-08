@@ -35,7 +35,7 @@ const sortedPosts = getSortedPosts(posts);
             ({ data }, index) =>
               index < 5 && (
                 <Card
-                  href={`/posts/${slugify(data)}`}
+                  href={`/blog/${slugify(data)}`}
                   frontmatter={data}
                   secHeading={false}
                 />
