@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { IoNewspaperOutline } from "react-icons/io5";
 import Layout from "@layouts/Layout.astro";
 import LinkButton from "@components/atoms/LinkButton.astro";
 // import GithubRepoCard from "@components/molecules/GithubRepoCard";
@@ -28,7 +29,8 @@ const sortedPosts = getSortedPosts(posts);
     <Hr />
 
     <section id="recent-posts">
-      <h2>📜Recent Posts</h2>
+      <h2>
+        <IoNewspaperOutline /> Recent Posts</h2>
       <ul>
         {
           sortedPosts.map(
