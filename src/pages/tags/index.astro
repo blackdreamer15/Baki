@@ -13,11 +13,15 @@ let tags = getUniqueTags(posts);
 ---
 
 <Layout title={`Tags | ${SITE.title}`}>
-  <!-- <Header activeNav="tags" /> -->
   <Main pageTitle="Tags" pageDesc="This is a collection of all tags used in my blog posts.">
-    <ul>
-      {tags.map(tag => <Tag name={tag} size="lg" />)}
-    </ul>
+    {tags ? (
+      <ul>
+        {tags.map(tag => <Tag name={tag} size="lg" />)}
+      </ul>
+      ):(
+        <p>No tags found.</p>
+      )
+    }
   </Main>
   <Footer />
 </Layout>
