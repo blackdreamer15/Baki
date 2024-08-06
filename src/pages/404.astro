@@ -1,0 +1,61 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/organisms/Header.astro";
+import Footer from "@components/organisms/Footer.astro";
+import LinkButton from "@components/atoms/LinkButton.astro";
+---
+
+<Layout title={`404 Not Found | ${SITE.title}`}>
+  <Header />
+
+  <br />
+
+  <main id="main-content">
+    <div class="not-found-wrapper">
+      <h1 aria-label="404 Not Found">404</h1>
+      <span aria-hidden="true">¯\_(ツ)_/¯</span>
+      <p>Page Not Found</p>
+
+      <br />
+
+      <p class="text-center">
+        Oops, Cosmic Disturbance!
+        <br />
+        <br />
+        <span class="text-base">
+          The page you were looking for has been swallowed by a black hole.
+          Much like Alderaan, the cosmic object you sought has vanished.<br />The URL may be wrong, or the page no longer exists.
+        </span>
+      </p>
+    </div>
+
+    <LinkButton
+      href="/"
+      className="my-6 underline decoration-dashed underline-offset-8 text-lg"
+    >
+      Let's go back home
+    </LinkButton>
+  </main>
+</Layout>
+
+<Footer />
+
+<style>
+  #main-content {
+    @apply mx-auto my-auto flex flex-col max-w-3xl flex-1 items-center justify-center;
+  }
+  .not-found-wrapper {
+    @apply mb-14 flex flex-col items-center justify-center;
+  }
+  .not-found-wrapper h1 {
+    @apply text-9xl font-bold text-skin-accent;
+  }
+  .not-found-wrapper p {
+    @apply mt-4 text-2xl sm:text-3xl;
+  }
+
+  .txt {
+    @apply mt-4;
+  }
+</style>

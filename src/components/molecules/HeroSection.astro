@@ -1,0 +1,90 @@
+---
+import { SOCIALS } from "@config";
+import Socials from "@components/molecules/Socials.astro";
+
+const socialCount = SOCIALS.filter(social => social.active).length;
+---
+
+
+<section id="hero">
+	<div class="flex flex-1 flex-col sm:pr-6">
+		<div>
+			<h2 class="font-semibold">Jessy Justice Julien Baki</h2>
+			<p class="text-neutral-300">Software Engineer</p>
+		</div>
+
+		<br />
+
+		<div>
+			<p class="text-justify">
+				Senior-year Computer Engineering student at Kwame Nkrumah University of Science and Technology with a passion for architecting secure, scalable systems that make a difference. Skilled in JavaScript, TypeScript, Python, and expanding my knowledge base with Golang. Eager to dive deeper into the intricacies of DevOps and Cloud Engineering.
+			</p>
+			<br />
+			<p class="text-justify">
+				I thrive on challenges and believe in learning through hands-on experience. Whether it's a complex project or an unfamiliar tech stack, I'm always ready to dive in and expand my skills.
+			</p>
+			<br />
+			<p class="text-justify">
+			When I'm not coding, you will find me immersed in animes, shooting hoops, tickling the ivories, lost in a good book or philosophical works of Voltaire and Nietzsche.
+			</p>
+			<p class="text-justify">
+				Learning is my lifeblood – it's how I stay alive in this ever-evolving digital landscape.
+				Let's build something extraordinary together!
+			</p>
+
+			<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-5 mt-8 mb-5">
+				<div class="flex items-center gap-3">
+						<a
+							class="flex border px-3 py-2 rounded-md border-gray-700 font-light text-sm items-center gap-1 hover:scale-110 hover:text-skin-accent transition ease-in-out duration-250"
+							href="mailto:bakijessy@gmail.com"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.29289 5.29289C3.47386 5.11193 3.72386 5 4 5H20C20.2761 5 20.5261 5.11193 20.7071 5.29289M3.29289 5.29289C3.11193 5.47386 3 5.72386 3 6V18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18V6C21 5.72386 20.8881 5.47386 20.7071 5.29289M3.29289 5.29289L10.5858 12.5857C11.3668 13.3668 12.6332 13.3668 13.4142 12.5857L20.7071 5.29289" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+							Contact Me
+						</a>
+
+						<a
+							class="flex border px-3 py-2 rounded-md border-gray-700 font-light text-sm items-center gap-1 hover:scale-110 hover:text-skin-accent transition ease-in-out duration-250"
+							href=""
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 10.9696L11.9628 18.5497C10.9782 19.4783 9.64274 20 8.25028 20C6.85782 20 5.52239 19.4783 4.53777 18.5497C3.55315 17.6211 3 16.3616 3 15.0483C3 13.7351 3.55315 12.4756 4.53777 11.547L12.575 3.96687C13.2314 3.34779 14.1217 3 15.05 3C15.9783 3 16.8686 3.34779 17.525 3.96687C18.1814 4.58595 18.5502 5.4256 18.5502 6.30111C18.5502 7.17662 18.1814 8.01628 17.525 8.63535L9.47904 16.2154C9.15083 16.525 8.70569 16.6989 8.24154 16.6989C7.77738 16.6989 7.33224 16.525 7.00403 16.2154C6.67583 15.9059 6.49144 15.4861 6.49144 15.0483C6.49144 14.6106 6.67583 14.1907 7.00403 13.8812L14.429 6.88674" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+							Resume
+						</a>
+				</div>
+
+				<div class="flex items-center gap-3">
+					{
+						// only display if at least one social link is enabled
+						socialCount > 0 && (
+							<div class="social-wrapper">
+								<Socials />
+							</div>
+						)
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	  /* ===== Hero Section ===== */
+		#hero {
+    @apply flex sm:flex-row sm:pb-12 sm:pt-12 flex-col items-end pb-12 pt-12;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+</style>

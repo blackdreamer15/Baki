@@ -1,0 +1,61 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Footer from "@components/organisms/Footer.astro";
+import Card from "@components/organisms/Card";
+import getUniqueTags from "@utils/getUniqueTags";
+import getPostsByTag from "@utils/getPostsByTag";
+import slugify from "@utils/slugify";
+import { slugifyStr } from "@utils/slugify";
+import { SITE } from "@config";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+  tag: string;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  const tags = getUniqueTags(posts);
+
+  // return tags.map(tag => ({
+  //     params: { tag },
+  //     props: { tag },
+  //   })
+  // );
+
+  return tags.forEach(tag => tag);
+}
+
+const { tag } = Astro.props;
+console.log("Current tag (slugified):", tag);
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+console.log("Number of non-draft posts:", posts.length);
+
+const tagPosts = getPostsByTag(posts, tag);
+console.log("Number of posts for this tag:", tagPosts.length);
+
+// Get the original (non-slugified) tag name for display
+const originalTag = tagPosts.length > 0 ? tagPosts[0].data.tags.find((t: string) => slugifyStr(t) === tag) : tag;
+---
+
+<Layout title={`Tag: ${originalTag} | ${SITE.title}`}>
+  <Main
+    pageTitle={`Tag: ${originalTag}`}
+    pageDesc={`A collection of all articles with the tag "${originalTag}".`}
+  >
+    {tagPosts.length > 0 ? (
+      <ul>
+        {tagPosts.map(({ data }) => (
+          <Card href={`/blog/${slugify(data)}`} frontmatter={data} />
+        ))}
+      </ul>
+    ) : (
+      <p>No posts found for this tag.</p>
+    )}
+  </Main>
+  <Footer />
+</Layout>

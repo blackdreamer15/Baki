@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import Footer from "@components/organisms/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Tag from "@components/molecules/Tag.astro";
+import getUniqueTags from "@utils/getUniqueTags";
+import { SITE } from "@config";
+
+const posts = await getCollection("blog");
+
+let tags = getUniqueTags(posts);
+---
+
+<Layout title={`Tags | ${SITE.title}`}>
+  <Main pageTitle="Tags" pageDesc="This is a collection of all tags used in my blog posts.">
+    {tags ? (
+      <ul>
+        {tags.map(tag => <Tag name={tag} size="lg" />)}
+      </ul>
+      ):(
+        <p>No tags found.</p>
+      )
+    }
+  </Main>
+  <Footer />
+</Layout>
